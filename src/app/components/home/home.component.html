@@ -1,0 +1,24 @@
+<div *ngIf="showLoader" class="centralized-container">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!showLoader" class="centralized-container">
+  <article>
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select [(value)]="store.selectedCountry">
+        <mat-option *ngFor="let country of store.country" [value]="country.value">
+          {{ country.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field class="inputField">
+      <mat-label>Player Name</mat-label>
+      <input matInput [(ngModel)]="playerName">
+    </mat-form-field>
+    <button mat-stroked-button (click)="getSummonerData()"
+    [disabled]="playerName.length < 3">
+      Go
+    </button>
+  </article>
+</div> 
