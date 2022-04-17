@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService } from 'src/app/services/store/store.service';
-import { SummonerV4Service } from 'src/app/services/summoner-v4/summoner-v4.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { SummonerV4Service } from 'src/app/services/summoner-v4/summoner-v4.service';
+import { StoreService } from 'src/app/services/store/store.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
     public store: StoreService,
     private _summonerV4: SummonerV4Service,
     private _router: Router,
-    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -39,7 +38,6 @@ export class HomeComponent implements OnInit {
    }, error => {
       this.showLoader = false;
       this.errorMessage = `${error.statusText} - ${error.status}`;  
-      this.openSnackBar();
     }, () => {
       this.showLoader = false;
       if(!!this.store.summonerData.name) {
@@ -47,8 +45,4 @@ export class HomeComponent implements OnInit {
       }
     });
   };
-
-  openSnackBar(): void {
-    this._snackBar.open(this.errorMessage, '',  { duration: 2000 });
-  }
 }

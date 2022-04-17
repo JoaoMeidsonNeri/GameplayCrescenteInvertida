@@ -11,6 +11,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatButtonModule } from '@angular/material/button'; 
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ]
 })
 export class ComponentsModule { }
