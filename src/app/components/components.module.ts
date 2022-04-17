@@ -1,35 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileCardComponent } from './profile-card/profile-card.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatIconModule } from '@angular/material/icon'; 
 import { MatInputModule } from '@angular/material/input'; 
-import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar'; 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
-import { MatIconModule } from '@angular/material/icon'; 
-import { MatButtonModule } from '@angular/material/button'; 
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
     DashboardComponent,
+    HomeComponent,
     ProfileCardComponent,
   ],
   imports: [
     CommonModule,
-    MatInputModule,
     FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatButtonModule,
-    SharedModule
+    ReactiveFormsModule,
+    SharedModule,
   ]
 })
 export class ComponentsModule { }

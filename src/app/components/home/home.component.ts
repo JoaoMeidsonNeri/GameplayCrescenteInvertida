@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   showLoader: boolean = false;
 
   constructor(
-    public store: StoreService,
+    public readonly store: StoreService,
     private _summonerV4: SummonerV4Service,
     private _router: Router,
     ) { }
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
       this.errorMessage = `${error.statusText} - ${error.status}`;  
     }, () => {
       this.showLoader = false;
-      if(!!this.store.summonerData.name) {
+      if(this.store.summonerData.name) {
         this._router.navigate(['/dashboard']);
       }
     });
